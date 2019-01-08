@@ -9,11 +9,9 @@ export class IncrementadorComponent implements OnInit {
 
   @ViewChild('txtProgress') txtProgress: ElementRef;
 
-  // Los input se ejecutan luego del constructor, es decir cuando el componente ya se ha inicializado
-  // Esto se puede renombrar con nombre, nombre es lo que se usu desde afuera de este componente
   @Input('nombre') leyenda: string = 'Leyenda';
   @Input() progreso: number = 50;
-// actualizaValor es un evento
+
   @Output('actualizaValor') cambioValor: EventEmitter<number> = new EventEmitter();
 
   constructor() {
@@ -34,9 +32,9 @@ export class IncrementadorComponent implements OnInit {
 
     if ( newValue >= 100 ) {
       this.progreso = 100;
-    } else if ( newValue <= 0 ) {
+    }else if ( newValue <= 0 ) {
       this.progreso = 0;
-    } else {
+    }else {
       this.progreso = newValue;
     }
 
